@@ -1,0 +1,221 @@
+/* === CARRUSEL NEÓN AISLADO === */
+:root {
+  --neon-mustard: #cebf22;
+  --neon-background-dark: #ffffff;
+  --neon-card-dark: #161616;
+  --neon-text-light: #f8f8f8;
+  --neon-text-muted: #bbbbbb;
+}
+
+/* Envuelve TODO el carrusel en un contenedor con clase .neon-carousel */
+.neon-carousel {
+  background: var(--neon-background-dark);
+  padding: 60px 0;
+  color: var(--neon-text-light);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== TITULO ===== */
+.neon-carousel .section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  text-align: center;
+  padding: 75px 25px 40px;
+  color: var(--neon-mustard);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px var(--neon-mustard),
+               0 0 30px rgba(206,191,34,0.4);
+  animation: neon-glowText 3s ease-in-out infinite alternate;
+}
+@keyframes neon-glowText {
+  from { text-shadow: 0 0 10px rgba(206,191,34,0.3); }
+  to { text-shadow: 0 0 30px rgba(206,191,34,0.9); }
+}
+
+/* ===== SWIPER ===== */
+.neon-carousel .swiper {
+  width: 100%;
+  padding: 50px 0 90px;
+}
+.neon-carousel .swiper-slide {
+background: linear-gradient(160deg, #2a2a2a 0%, #1a1a1a 100%);
+  border-radius: 22px;
+  overflow: hidden;
+  width: 400px;
+  height: 560px;
+  border: 1px solid rgba(206,191,34,0.3);
+  box-shadow: 0 0 25px rgba(255, 234, 0, 0.1),
+              inset 0 0 10px rgba(255,255,255,0.05);
+  transition: all 0.5s ease;
+  position: relative;
+}
+.neon-carousel .swiper-slide::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: radial-gradient(circle, rgba(206,191,34,0.05), transparent 70%);
+  transform: rotate(25deg);
+  animation: neon-shine 8s linear infinite;
+}
+@keyframes neon-shine {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
+.neon-carousel .swiper-slide:hover {
+  transform: translateY(-10px) scale(1.04);
+  box-shadow: 0 0 40px rgba(206,191,34,0.4);
+}
+
+/* ===== CARD IMG ===== */
+.neon-carousel .card-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  filter: brightness(0.9) contrast(1.1);
+  transition: all 0.4s ease;
+}
+.neon-carousel .swiper-slide:hover .card-img {
+  filter: brightness(1.1) contrast(1.2);
+}
+
+/* ===== CARD CONTENT ===== */
+.neon-carousel .card-content {
+  padding: 20px 25px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100% - 250px);
+  box-sizing: border-box;
+}
+
+.neon-carousel .card-content h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  margin: 0 0 12px 0;
+  color: var(--neon-text-light);
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.15);
+  text-align: center;
+}
+
+/* ===== INFO ===== */
+.neon-carousel .card-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  color: var(--neon-text-muted);
+  flex-wrap: wrap;
+}
+.neon-carousel .info-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.neon-carousel .info-item i {
+  color: var(--neon-mustard);
+  font-size: 1rem;
+  filter: drop-shadow(0 0 5px rgba(206,191,34,0.5));
+}
+
+/* ===== PARRAFO ===== */
+.neon-carousel .card-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d0d0d0;
+  margin: 10px 0 20px 0;
+  flex-grow: 1;
+}
+
+/* ===== FOOTER ===== */
+.neon-carousel .card-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-top: 10px;
+}
+
+.neon-carousel .card-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.9rem;
+  color: var(--neon-mustard);
+  text-shadow: 0 0 15px rgba(206,191,34,0.8);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* ===== BOTÓN ===== */
+.neon-carousel .ver-mas {
+  display: inline-block;
+  width: 50%;
+  padding: 12px 0;
+  background: linear-gradient(90deg, var(--neon-mustard), #f5e86b);
+  color: #000;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  text-decoration: none;
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px rgba(206,191,34,0.4);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+.neon-carousel .ver-mas:hover {
+  background: linear-gradient(90deg, #fff44f, var(--neon-mustard));
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 25px rgba(206,191,34,0.6);
+}
+
+/* ===== PAGINATION ===== */
+.neon-carousel .swiper-pagination-bullet {
+  background: rgba(206,191,34,0.5);
+  opacity: 0.7;
+}
+.neon-carousel .swiper-pagination-bullet-active {
+  background: var(--neon-mustard);
+  box-shadow: 0 0 10px var(--neon-mustard);
+  transform: scale(1.2);
+}
+
+/* ===== AJUSTE RESPONSIVO Y ESCALA ===== */
+.swiper {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Imágenes con ajuste proporcional */
+.card-img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(206,191,34,0.3);
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: 260px;
+    height: 420px;
+  }
+  .card-img {
+    height: 200px;
+  }
+}
