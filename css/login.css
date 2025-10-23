@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;600;700;900&display=swap");
+
+:root {
+  --mainColor: #ffc107; /* Mostaza corporativo */
+  --black: #000;
+  --white: #fff;
+  --gray: #eaeaea;
+  --dark-gray: #2b2b2b;
+}
+
+/* GENERAL */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: url("../img/login.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lato", sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  color: var(--black);
+}
+
+/* TITULOS Y TEXTOS */
+
+h1 {
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--black);
+}
+
+h1.title {
+  font-size: 42px;
+  text-transform: uppercase;
+  color: var(--mainColor);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+p {
+  font-size: 15px;
+  line-height: 20px;
+  margin: 20px 0 30px;
+  color: var(--white);
+}
+
+a {
+  color: var(--mainColor);
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+  transition: 0.3s ease-in-out;
+}
+
+a:hover {
+  color: var(--white);
+}
+
+/* BOTONES */
+
+button {
+  border-radius: 25px;
+  border: none;
+  background-color: var(--mainColor);
+  color: var(--black);
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px;
+  padding: 12px 50px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: var(--black);
+  color: var(--mainColor);
+  letter-spacing: 3px;
+}
+
+button.ghost {
+  background-color: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.container {
+  border-radius: 25px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 780px;
+  max-width: 100%;
+  min-height: 500px;
+  background-color: var(--white);
+}
+
+/* FORMULARIOS */
+
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+form {
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+input {
+  background-color: var(--gray);
+  border: none;
+  border-radius: 4px;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+  outline: none;
+  color: var(--black);
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+input:focus {
+  background-color: #fff;
+  box-shadow: 0 0 6px var(--mainColor);
+}
+
+/* LOGIN Y REGISTRO */
+
+.login-container {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+
+.container.right-panel-active .login-container {
+  transform: translateX(100%);
+}
+
+.register-container {
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.container.right-panel-active .register-container {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: show 0.6s;
+}
+
+/* ANIMACIÓN */
+
+@keyframes show {
+  0%, 49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+
+  50%, 100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+/* PANEL DESLIZANTE */
+
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+  transform: translateX(-100%);
+}
+
+.overlay {
+  background-image: url("../img/login-overlay.jpg"); /* Fondo corporativo */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+.container.right-panel-active .overlay {
+  transform: translateX(50%);
+}
+
+.overlay-panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  text-align: center;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-left {
+  transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+  transform: translateX(0);
+}
+
+.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+  transform: translateX(20%);
+}
+
+/* REDES SOCIALES */
+
+.social-container {
+  margin: 20px 0;
+}
+
+.social-container a {
+  border: 1px solid var(--mainColor);
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+  color: var(--mainColor);
+  transition: 0.3s ease-in-out;
+}
+
+.social-container a:hover {
+  background-color: var(--mainColor);
+  color: var(--black);
+}
+
+.cecpro-logo {
+  width: 120px;              /* tamaño más equilibrado */
+  height: auto;              /* mantiene proporción */
+  margin-bottom: 1rem;       /* separa del texto */
+  object-fit: contain;       /* evita que se recorte */
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.2)); /* leve sombra */
+}
+
+.overlay-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.overlay-panel h1.title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.overlay-panel p {
+  max-width: 280px;
+  font-size: 0.95rem;
+  color: #f2f2f2;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    min-height: 550px;
+  }
+
+  button {
+    padding: 10px 35px;
+  }
+
+  form {
+    padding: 0 30px;
+  }
+}

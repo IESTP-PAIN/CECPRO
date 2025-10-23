@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CECPro - Acceso</title>
+    <link rel="stylesheet" href="css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div class="container" id="container">
+
+      <!-- Registro -->
+      <div class="form-container register-container">
+        <form>
+          <h1>Regístrate</h1>
+
+          <div class="form-control">
+            <input type="text" id="dni" placeholder="DNI" maxlength="8" required />
+            <small id="dni-error"></small>
+            <span></span>
+          </div>
+
+          <div class="form-control">
+            <input type="text" id="nombres" placeholder="Nombres" required />
+            <small id="nombres-error"></small>
+            <span></span>
+          </div>
+
+          <div class="form-control">
+            <input type="text" id="apellidos" placeholder="Apellidos" required />
+            <small id="apellidos-error"></small>
+            <span></span>
+          </div>
+
+          <div class="form-control">
+            <input type="email" id="email" placeholder="Correo electrónico" required />
+            <small id="email-error"></small>
+            <span></span>
+          </div>
+
+          <div class="form-control">
+            <input type="password" id="password" placeholder="Contraseña" required />
+            <small id="password-error"></small>
+            <span></span>
+          </div>
+
+          <button type="submit" value="submit">Registrar</button>
+
+          <div class="social-container">
+            <a href="#" target="_blank" class="social">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" target="_blank" class="social">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="#" target="_blank" class="social">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Login -->
+      <div class="form-container login-container">
+        <form class="form-lg">
+          <h1>Iniciar sesión</h1>
+
+          <div class="form-control2">
+            <input type="text" class="dni-2" placeholder="DNI" maxlength="8" required />
+            <small class="dni-error-2"></small>
+            <span></span>
+          </div>
+
+          <div class="form-control2">
+            <input type="password" class="password-2" placeholder="Contraseña" required />
+            <small class="password-error-2"></small>
+            <span></span>
+          </div>
+
+          <div class="content">
+            <div class="pass-link">
+              <a href="#">¿Olvidaste tu contraseña?</a>
+            </div>
+          </div>
+
+          <button type="submit" value="submit">Iniciar sesión</button>
+
+          <div class="social-container">
+            <a href="https://www.facebook.com/share/1CAx5E5vr9/" target="_blank" class="social">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.tiktok.com/@cecpro.oficial" target="_blank" class="social">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://www.instagram.com/cecpro2025/" target="_blank" class="social">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <!-- Panel animado -->
+      <div class="overlay-container">
+        <div class="overlay">
+          <!-- Panel izquierdo -->
+          <div class="overlay-panel overlay-left">
+            <img src="img/logo.png" alt="Logo CECPRO" class="cecpro-logo" />
+            <h1 class="title">¡Bienvenido a CECPRO!</h1>
+            <p>Si ya tienes una cuenta, inicia sesión para continuar tu aprendizaje</p>
+            <button class="ghost" id="login">
+              Iniciar sesión
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+          </div>
+
+          <!-- Panel derecho -->
+          <div class="overlay-panel overlay-right">
+            <img src="img/logo.png" alt="Logo CECPRO" class="cecpro-logo" />
+            <h1 class="title">Únete a CECPRO</h1>
+            <p>Regístrate y accede a nuestros cursos y capacitaciones profesionales</p>
+            <button class="ghost" id="register">
+              Registrarse
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/login.js"></script>
+  </body>
+</html>

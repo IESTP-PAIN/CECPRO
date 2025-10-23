@@ -99,73 +99,98 @@
     </div>
     <!-- Page Header End -->
 
-    <!-- Contact Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 450px;">
-                    <div class="position-relative h-100">
-                        <iframe class="position-relative w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.919475782518!2d-79.02635242587398!3d-8.109681781135682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ad3d86b8c3ce1d%3A0x44759d6942ae2969!2sJir%C3%B3n%20Col%C3%B3n%20646%2C%20Trujillo%2013001!5e0!3m2!1ses!2spe!4v1760475949321!5m2!1ses!2spe" frameborder="0" style="min-height: 450px; border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                    </div>
-                </div>
-                
-                <!-- Formulario de Consultas -->
-            <div class="row justify-content-center mt-5 wow fadeInUp" data-wow-delay="0.9s">
-                <div class="col-lg-8">
-                    <div class="bg-primary text-center p-5" style="border-radius: 30px;">
-                        <h1 style="color: black;" class="mb-4">Consultas</h1>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="nombres" name="nombres"
-                                            placeholder="Nombres..." required style="border-radius: 30px;">
-                                        <label for="nombres">Nombres</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control border-0" id="apellidos" name="apellidos"
-                                            placeholder="Apellidos..." required style="border-radius: 30px;">
-                                        <label for="apellidos">Apellidos</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control border-0" id="correo" name="correo"
-                                            placeholder="Correo Electrónico..." required style="border-radius: 30px;">
-                                        <label for="correo">Correo Electrónico</label>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-floating">
-                                        <input type="number" class="form-control border-0" id="edad" name="edad"
-                                            placeholder="Edad" required min="15" max="100"
-                                            oninput="if(this.value.length > 3) this.value = this.value.slice(0,3); if(this.value > 100) this.value = 100;"
-                                            style="border-radius: 30px;">
-                                        <label for="edad">Edad</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control border-0" id="mensaje" name="mensaje"
-                                            placeholder="Mensaje" style="height: 100px; border-radius: 30px;"
-                                            required></textarea>
-                                        <label for="mensaje">Mensaje</label>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-dark w-100 py-3" type="submit"
-                                        style="border-radius: 30px; background-color: black;">Enviar</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+<!-- Contact Start -->
+<div class="container-fluid py-6">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Mapa -->
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 450px;">
+        <div class="position-relative h-100 rounded-4 overflow-hidden shadow">
+          <iframe
+            class="position-relative w-100 h-100"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.919475782518!2d-79.02635242587398!3d-8.109681781135682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ad3d86b8c3ce1d%3A0x44759d6942ae2969!2sJir%C3%B3n%20Col%C3%B3n%20646%2C%20Trujillo%2013001!5e0!3m2!1ses!2spe!4v1760475949321!5m2!1ses!2spe"
+            frameborder="0"
+            style="border: 0;"
+            allowfullscreen=""
+            aria-hidden="false"
+            tabindex="0"
+          ></iframe>
         </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="bg-light p-5 shadow-lg rounded-4">
+          <h2 class="text-center fw-bold mb-4 text-primary">Contáctanos</h2>
+          <form id="form-consulta" novalidate>
+            <div class="row g-3">
+              <!-- Nombre completo -->
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombre" required>
+                  <label for="nombres">Nombre</label>
+                  <div class="invalid-feedback">Por favor, ingresa tu nombre.</div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+                  <label for="apellidos">Apellidos</label>
+                  <div class="invalid-feedback">Por favor, ingresa tus apellidos.</div>
+                </div>
+              </div>
+
+              <!-- Correo -->
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo Electrónico" required>
+                  <label for="correo">Correo Electrónico</label>
+                  <div class="invalid-feedback">Ingresa un correo válido.</div>
+                </div>
+              </div>
+
+              <!-- Teléfono -->
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" pattern="[0-9]{9}" maxlength="9" required>
+                  <label for="telefono">Teléfono</label>
+                  <div class="invalid-feedback">Ingresa un número válido (9 dígitos).</div>
+                </div>
+              </div>
+
+              <!-- Asunto -->
+              <div class="col-12">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Asunto" required>
+                  <label for="asunto">Asunto</label>
+                  <div class="invalid-feedback">Escribe el asunto de tu consulta.</div>
+                </div>
+              </div>
+
+              <!-- Mensaje -->
+              <div class="col-12">
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Escribe tu mensaje" id="mensaje" name="mensaje" style="height: 120px;" required></textarea>
+                  <label for="mensaje">Mensaje</label>
+                  <div class="invalid-feedback">Escribe tu mensaje.</div>
+                </div>
+              </div>
+
+              <!-- Botón -->
+              <div class="col-12">
+                <button class="btn btn-primary w-100 py-3 fw-semibold" type="submit">
+                  Enviar Mensaje
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-    <!-- Contact End -->
+  </div>
+</div>
+<!-- Contact End -->
 
 
     <!-- Footer Start -->
