@@ -6,6 +6,45 @@
     --dark: #000000;
 }
 
+#navbar {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  overflow: hidden;
+}
+
+/* === Botón Iniciar Sesión === */
+.btn-login {
+  color: #000;
+  background-color: transparent;
+  border: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+/* Hover: fondo mostaza */
+.btn-login:hover {
+  background-color: transparent;
+  transition: all 0.3s ease;
+  color: var(--primary);
+}
+
+/* Icono blanco al pasar */
+.btn-login:hover i {
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+/* Centrado adicional en móviles (seguridad extra) */
+@media (max-width: 991px) {
+  .navbar .btn-login {
+    margin: auto;
+    display: inline-flex;
+  }
+}
+
 .container-teams {
     max-width: 1200px;
     max-height: 1000px;
@@ -172,72 +211,6 @@
     font-weight: normal;
 }
 
-
-/*** Navbar ***/
-.navbar.sticky-top {
-    top: -100px;
-    transition: .5s;
-}
-
-.navbar .navbar-brand,
-.navbar a.btn {
-    height: 80px
-}
-
-.navbar .navbar-nav .nav-link {
-    margin-right: 30px;
-    padding: 25px 0;
-    color: var(--dark);
-    font-weight: 500;
-    text-transform: uppercase;
-    outline: none;
-}
-
-.navbar .navbar-nav .nav-link:hover,
-.navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
-}
-
-.navbar .dropdown-toggle::after {
-    border: none;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    vertical-align: middle;
-    margin-left: 8px;
-}
-
-@media (max-width: 991.98px) {
-    .navbar .navbar-nav .nav-link {
-        margin-right: 0;
-        padding: 10px 0;
-    }
-
-    .navbar .navbar-nav {
-        border-top: 1px solid #EEEEEE;
-    }
-}
-
-@media (min-width: 992px) {
-    .navbar .nav-item .dropdown-menu {
-        display: block;
-        border: none;
-        margin-top: 0;
-        top: 150%;
-        opacity: 0;
-        visibility: hidden;
-        transition: .5s;
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-        top: 100%;
-        visibility: visible;
-        transition: .5s;
-        opacity: 1;
-    }
-}
-
-
 /*** Header ***/
 .carousel-caption {
     top: 0;
@@ -298,36 +271,6 @@
     }
 }
 
-
-/*** Courses ***/
-.courses {
-    min-height: 100vh;
-    background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .9)), url(../img/carousel-1.jpg) center center no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
-.courses-item .courses-overlay {
-    position: absolute;
-    width: 100%;
-    height: 0;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, .5);
-    overflow: hidden;
-    opacity: 0;
-    transition: .5s;
-}
-
-.courses-item:hover .courses-overlay {
-    height: 100%;
-    opacity: 1;
-}
-
-
 /*** Team ***/
 .team-items {
     margin: -.75rem;
@@ -374,39 +317,6 @@
     opacity: 1;
 }
 
-
-/*** Testimonial ***/
-.testimonial-carousel .owl-dots {
-    height: 40px;
-    margin-top: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.testimonial-carousel .owl-dot {
-    position: relative;
-    display: inline-block;
-    margin: 0 5px;
-    width: 20px;
-    height: 20px;
-    background: transparent;
-    border: 2px solid var(--primary);
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-dot.active {
-    width: 40px;
-    height: 40px;
-    background: var(--primary);
-}
-
-.testimonial-carousel .owl-item img {
-    width: 150px;
-    height: 150px;
-}
-
-
 /*** Footer ***/
 .footer .btn.btn-link {
     display: block;
@@ -445,6 +355,71 @@
 .copyright a:hover {
     color: var(--light);
 }
+
+/*** Navbar ***/
+.navbar.sticky-top {
+    top: -100px;
+    transition: .5s;
+}
+
+.navbar .navbar-brand,
+.navbar a.btn {
+    height: 80px
+}
+
+.navbar .navbar-nav .nav-link {
+    margin: 15px;
+    padding: 15px 0;
+    color: var(--dark);
+    font-weight: 500;
+    text-transform: uppercase;
+    outline: none;
+}
+
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link.active {
+    color: var(--primary);
+}
+
+.navbar .dropdown-toggle::after {
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    vertical-align: middle;
+    margin-left: 8px;
+}
+
+@media (max-width: 991.98px) {
+    .navbar .navbar-nav .nav-link {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+
+    .navbar .navbar-nav {
+        border-top: 1px solid #EEEEEE;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
 /* ===== SUBMENÚS DENTRO DEL DROPDOWN ===== */
 .dropdown-submenu {
   position: relative;
@@ -455,14 +430,8 @@
   left: 100%;
   margin-top: 0;
   margin-left: 0;
-  border-radius: 0;
   display: none;
   position: absolute;
-}
-
-/* Mostrar solo el submenú del elemento activo */
-.dropdown-submenu:hover > .dropdown-menu {
-  display: block;
 }
 
 /* Estilo para los textos */
@@ -538,187 +507,64 @@
   font-size: 12px;
   color: #666;
 }
-
 /* ========================================================= */
-/* ======== RESPONSIVE (Vista móvil) ======== */
+/* ======== MEJORA FINAL DEL ACORDEÓN EN MÓVIL ============= */
 /* ========================================================= */
-@media (max-width: 991px) {
-  /* Submenús se muestran como bloques normales */
-  .dropdown-submenu > .dropdown-menu {
-    position: static !important;
-    display: none;
-    box-shadow: none !important;
-    margin-left: 0 !important;
-    border-left: 2px solid #f3bd00;
-  }
-
-  /* Mostrar submenú al tocar o pasar */
-  .dropdown-submenu.show > .dropdown-menu,
-  .dropdown-submenu:hover > .dropdown-menu {
-    display: block !important;
-  }
-
-  /* Ajustes visuales */
-  .dropdown-item {
-    padding: 10px 20px !important;
-    border-bottom: 1px solid #eee;
-  }
-
-  /* Flechita gira hacia abajo */
-  .dropdown-submenu > .dropdown-item::after {
-    content: "▼";
-    float: right;
-    margin-left: 8px;
-  }
-}
-
-/* ========================================================= */
-/* ======== MEJORA DE USABILIDAD MÓVIL (ACORDEÓN SUAVE) ======== */
-/* ========================================================= */
-@media (max-width: 991px) {
-  /* Animación de despliegue */
-  .dropdown-submenu > .dropdown-menu {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.3s ease;
-    padding: 0 0;
-  }
-
-  .dropdown-submenu.show > .dropdown-menu {
-    max-height: 500px; /* ajusta si tienes más elementos */
-    padding: 5px 0;
-  }
-
-  /* Mejora táctil */
-  .dropdown-item {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-
-  /* Flechita animada */
-  .dropdown-submenu > .dropdown-item::after {
-    transition: transform 0.3s ease;
-  }
-
-  .dropdown-submenu.show > .dropdown-item::after {
-    transform: rotate(180deg);
-  }
-
-  /* Fondo ligeramente gris para diferenciar niveles */
-  .dropdown-submenu > .dropdown-menu .dropdown-item {
-    background-color: #fafafa !important;
-  }
-}
-
-/* ========================================================= */
-/* ======== SUBMENÚS CON CLICK (MEJOR USABILIDAD RESPONSIVE) ======== */
-/* ========================================================= */
-
-/* Ocultar submenús por defecto */
-.dropdown-submenu > .dropdown-menu {
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-5px);
-  transition: all 0.25s ease;
-  border-left: 2px solid #f3bd00;
-}
-
-/* Mostrar al hacer clic */
-.dropdown-submenu.show > .dropdown-menu {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-/* Flecha indicadora de submenú */
-.dropdown-submenu > .dropdown-item::after {
-  content: "▸";
-  float: right;
-  font-size: 12px;
-  color: #777;
-  transition: transform 0.3s ease;
-}
-
-/* Flecha rota al abrir */
-.dropdown-submenu.show > .dropdown-item::after {
-  transform: rotate(90deg);
-  color: #000;
-}
-
-/* --- Mejora visual para móviles --- */
 @media (max-width: 991px) {
   .dropdown-menu {
-    border: none;
-    box-shadow: none;
+    transition: max-height 0.35s ease, padding 0.3s ease;
+    overflow: hidden;
   }
 
-  .dropdown-item {
-    padding: 12px 18px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .dropdown-submenu > .dropdown-menu {
-    margin-left: 15px;
-    border-left: 2px solid #f3bd00;
-  }
-
-  /* Flecha hacia abajo en móviles */
-  .dropdown-submenu > .dropdown-item::after {
-    content: "▼";
-    transform: rotate(0deg);
-  }
-
-  .dropdown-submenu.show > .dropdown-item::after {
-    transform: rotate(180deg);
-  }
-}
-
-@media (max-width: 991px) {
   .dropdown-submenu > .dropdown-menu {
     max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.3s ease;
     padding: 0;
   }
 
   .dropdown-submenu.show > .dropdown-menu {
-    max-height: 500px;
+    display: block !important;
+    max-height: 600px;
     padding: 5px 0;
   }
 
   .dropdown-submenu > .dropdown-item::after {
-    content: "▼";
-    float: right;
     transition: transform 0.3s ease;
   }
 
   .dropdown-submenu.show > .dropdown-item::after {
-    transform: rotate(180deg);
+    transform: rotate(90deg);
   }
 }
 
-/* ======== RESALTADO MOSTAZA AL PASAR EL MOUSE ======== */
+@media (max-width: 991px) {
+  /* Efecto acordeón */
+  .dropdown-menu {
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.3s ease;
+  }
 
-/* Resaltar texto de los dropdowns al pasar el mouse */
-.dropdown-menu .dropdown-item:hover,
-.dropdown-menu .dropdown-item:focus {
-  background-color: var(--primary) !important;
-  color: #000 !important;
-  font-weight: 500;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  .dropdown-submenu > .dropdown-menu {
+    max-height: 0;
+    padding: 0;
+  }
+
+  .dropdown-submenu.show > .dropdown-menu {
+    display: block !important;
+    max-height: 500px;
+    padding: 5px 0;
+  }
+
+  /* Flecha animada */
+  .dropdown-submenu > .dropdown-item::after {
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown-submenu.show > .dropdown-item::after {
+    transform: rotate(90deg);
+  }
+
+  /* Evitar desplazamiento lateral */
+  .dropdown-submenu > .dropdown-menu {
+    position: static !important;
+  }
 }
-
-/* Cuando el submenú está abierto, mantener el resaltado */
-.dropdown-submenu.show > .dropdown-item {
-  background-color: var(--primary) !important;
-  color: #000 !important;
-}
-
-/* Flecha también se pinta mostaza cuando está activo o en hover */
-.dropdown-submenu.show > .dropdown-item::after,
-.dropdown-submenu > .dropdown-item:hover::after {
-  color: #000 !important;
-}
-
