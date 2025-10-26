@@ -221,7 +221,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: rgba(0, 0, 0, .75);
+    background: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
@@ -390,36 +390,6 @@
     margin-left: 8px;
 }
 
-@media (max-width: 991.98px) {
-    .navbar .navbar-nav .nav-link {
-        margin-right: 0;
-        padding: 10px 0;
-    }
-
-    .navbar .navbar-nav {
-        border-top: 1px solid #EEEEEE;
-    }
-}
-
-@media (min-width: 992px) {
-    .navbar .nav-item .dropdown-menu {
-        display: block;
-        border: none;
-        margin-top: 0;
-        top: 150%;
-        opacity: 0;
-        visibility: hidden;
-        transition: .5s;
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-        top: 100%;
-        visibility: visible;
-        transition: .5s;
-        opacity: 1;
-    }
-}
-
 /* ===== SUBMENÚS DENTRO DEL DROPDOWN ===== */
 .dropdown-submenu {
   position: relative;
@@ -507,64 +477,192 @@
   font-size: 12px;
   color: #666;
 }
-/* ========================================================= */
-/* ======== MEJORA FINAL DEL ACORDEÓN EN MÓVIL ============= */
-/* ========================================================= */
-@media (max-width: 991px) {
-  .dropdown-menu {
-    transition: max-height 0.35s ease, padding 0.3s ease;
-    overflow: hidden;
+
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+
+    /* === Flecha principal (Diplomados y Especializaciones) moderna === */
+    .navbar .dropdown-toggle::after {
+        border: none;
+        content: "\f105"; /* fa-angle-right */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        vertical-align: middle;
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+        display: inline-block;
+    }
+
+    /* Al pasar el cursor: flecha hacia abajo */
+    .navbar .nav-item:hover > .nav-link.dropdown-toggle::after {
+        transform: rotate(90deg); /* gira 90° hacia abajo */
+    }
+
+    /* === Flechita animada para submenús === */
+    .dropdown-submenu > .dropdown-item::after {
+        content: "\f105";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-left: 6px;
+        opacity: 0.7;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        display: inline-block;
+    }
+
+    .dropdown-submenu:hover > .dropdown-item::after {
+        transform: rotate(90deg);
+        opacity: 1;
+    }
+}
+/* ================================
+/* ================================
+   ACORDEÓN MÓVIL BONITO (3 niveles)
+   ================================ */
+@media (max-width: 991.98px) {
+  /* Contenedor general del menú */
+  .navbar .dropdown-menu {
+    position: static !important;
+    float: none !important;
+    display: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    background: #fff;
   }
 
+  /* Mostrar el nivel visible */
+  .navbar .dropdown-menu.show {
+    display: block;
+  }
+
+  /* ----------- Submenús ----------- */
   .dropdown-submenu > .dropdown-menu {
+    display: block;
     max-height: 0;
+    overflow: hidden;
     padding: 0;
+    margin-left: 10px;
+    border-left: 2px solid #e5e5e5;
+    transition: max-height 0.35s ease, padding 0.25s ease, margin 0.25s ease;
+    background-color: #fafafa;
+    border-radius: 6px;
   }
 
   .dropdown-submenu.show > .dropdown-menu {
-    display: block !important;
-    max-height: 600px;
+    max-height: 800px;
     padding: 5px 0;
+    margin-top: 5px;
   }
 
-  .dropdown-submenu > .dropdown-item::after {
-    transition: transform 0.3s ease;
+  /* ----------- Ítems de menú ----------- */
+  .dropdown-menu .dropdown-item {
+    text-align: center;
+    padding: 10px 16px !important;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    transition: background 0.25s ease, color 0.25s ease;
+    position: relative;
+    font-weight: 500;
+    color: #333;
   }
 
-  .dropdown-submenu.show > .dropdown-item::after {
-    transform: rotate(90deg);
+  .dropdown-menu .dropdown-item:hover {
+    background-color: #f7f7f7;
+    color: var(--primary);
   }
+
+/* ----------- Flechas modernas (Font Awesome) ----------- */
+.navbar .dropdown-toggle::after,
+.dropdown-submenu > .dropdown-item::after {
+  content: "\f105"; /* fa-angle-right */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 0.85rem;
+  float: right;
+  margin-left: 8px;
+  color: #666;
+  opacity: 0.8;
+  transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
-@media (max-width: 991px) {
-  /* Efecto acordeón */
-  .dropdown-menu {
-    overflow: hidden;
-    transition: max-height 0.35s ease, padding 0.3s ease;
+/* Flecha hacia abajo (cuando está abierta) */
+.dropdown-toggle.show::after,
+.dropdown-submenu.show > .dropdown-item::after {
+  transform: rotate(90deg);
+  color: var(--primary);
+  opacity: 1;
+}
+
+
+  /* ----------- Nivel 3 (más indentado) ----------- */
+  .dropdown-submenu .dropdown-submenu > .dropdown-menu {
+    margin-left: 20px;
+    border-left: 2px dashed #ddd;
+    background-color: #fdfdfd;
   }
 
-  .dropdown-submenu > .dropdown-menu {
-    max-height: 0;
-    padding: 0;
+  .dropdown-submenu .dropdown-submenu > .dropdown-menu .dropdown-item {
+    font-size: 0.9rem;
   }
 
-  .dropdown-submenu.show > .dropdown-menu {
-    display: block !important;
-    max-height: 500px;
-    padding: 5px 0;
+  /* ----------- Animación y aspecto general ----------- */
+  .navbar .dropdown-menu {
+    border-radius: 8px;
   }
 
-  /* Flecha animada */
-  .dropdown-submenu > .dropdown-item::after {
-    transition: transform 0.3s ease;
+  .navbar .dropdown-item {
+    border-bottom: 1px solid #eee;
   }
 
-  .dropdown-submenu.show > .dropdown-item::after {
-    transform: rotate(90deg);
+  .navbar .dropdown-item:last-child {
+    border-bottom: none;
   }
 
-  /* Evitar desplazamiento lateral */
-  .dropdown-submenu > .dropdown-menu {
-    position: static !important;
+  /* ----------- Botón de inicio de sesión ----------- */
+  .navbar .btn-login {
+    background: none !important;
+    border: none !important;
+    color: #000 !important;
+    font-weight: 500;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 4px 0 !important;
+    padding: 8px 0 !important;
+    font-size: 0.95rem;
+  }
+
+  .navbar .btn-login:hover {
+    background-color: #f7f7f7 !important;
+    color: var(--primary) !important;
+  }
+
+  /* ----------- Espaciado general del menú ----------- */
+  .navbar-nav .nav-link {
+    margin: 3px 0 !important;
+    padding: 6px 0 !important;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .navbar-collapse {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
   }
 }
