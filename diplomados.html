@@ -36,23 +36,28 @@
             <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center me-4">
                     <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>123 Street, New York, USA</small>
+                    <small>Jirón Colón 646, Centro Cívico - Trujillo</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <small class="far fa-clock text-primary me-2"></small>
-                    <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
+                    <small>Lun - Dom : 24h</small>
                 </div>
             </div>
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center me-4">
                     <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small>+012 345 6789</small>
+                    <small>+51 989 585 056</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center mx-n2">
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-square btn-link rounded-0" href=""><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary"
+                        href="https://www.facebook.com/share/1CAx5E5vr9/" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" 
+                            href="https://www.tiktok.com/@cecpro.oficial"><i
+                                class="fab fa-tiktok"></i></a>
+                    <a class="btn btn-square btn-link rounded-0" 
+                        href="https://www.instagram.com/cecpro2025/">
+                        <i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -150,9 +155,48 @@
     </div>
     <!-- Page Header End -->
 
-    <!-- Diplomados Start -->
+<!-- Diplomados Start -->
+<section class="diplomados-section" id="diplomados">
+  <div class="diplomados-header">
+    <h6 class="text-primary text-uppercase">Nuestras Áreas Académicas</h6>
+    <h1>Diplomados y Especializaciones por Área</h1>
+  </div>
 
-    <!-- Diplomados End -->
+  <!-- Botones de áreas -->
+  <div class="areas-tabs">
+    <button class="area-btn active" data-area="todos">Todos</button>
+    <button class="area-btn" data-area="derecho">Derecho</button>
+    <button class="area-btn" data-area="educacion">Educación</button>
+    <button class="area-btn" data-area="enfermeria">Enfermería</button>
+    <button class="area-btn" data-area="farmacia">Farmacia</button>
+    <button class="area-btn" data-area="obstetricia">Obstetricia</button>
+  </div>
+
+  <!-- Contenedor de grid -->
+  <div class="diplomados-grid" id="diplomadosGrid"></div>
+</section>
+
+<!-- Modal Yape -->
+<div class="modal-yape" id="modalYape">
+  <div class="modal-yape-content">
+    <span id="cerrarModal">&times;</span>
+    <h3>Pago con Yape</h3>
+    <p>Escanea el siguiente código QR y realiza tu pago</p>
+    <img src="img/yape_qr.png" alt="QR de Yape" class="qr-img">
+    <h4 id="precioDiplomado"></h4>
+    <p class="small">Sube tu comprobante para confirmar el pago:</p>
+    <input type="file" id="comprobantePago" accept="image/*">
+    <button id="enviarPago">Enviar comprobante</button>
+    <form id="pagoForm" style="display:none;">
+      <input type="hidden" name="usuario" id="usuario" value="123"> <!-- cambiar luego por sesión PHP -->
+      <input type="hidden" name="diplomado" id="diplomadoSeleccionado">
+      <input type="hidden" name="monto" id="montoSeleccionado">
+      <input type="hidden" name="estado" value="pendiente">
+    </form>
+
+  </div>
+</div>
+<!-- Diplomados End -->
 
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-light footer mt-2 mb-0 py-5 wow fadeIn" data-wow-delay="0.1s">
@@ -236,6 +280,7 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/responsive.js"></script>
+    <script src="js/diplomados.js"></script>
 <!-- End JavaScript Libraries -->
 
 </body>
